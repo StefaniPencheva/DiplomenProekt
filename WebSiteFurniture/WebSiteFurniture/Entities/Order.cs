@@ -15,7 +15,7 @@ namespace WebSiteFurniture.Entities
         [Required]
 
         public string UserId { get; set; }
-        public virtual AplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
         [Required]
         
         public DateTime OrderDate { get; set; }
