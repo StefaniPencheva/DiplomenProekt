@@ -47,7 +47,6 @@ namespace WebSiteFurniture.Areas.Identity.Pages.Account
             //[EmailAddress]
             //public string Email { get; set; }
             [Required]
-            [EmailAddress]
             public string UserName { get; set; }
 
             [Required]
