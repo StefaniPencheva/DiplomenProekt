@@ -11,8 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebSiteFurniture.Abstraction;
 using WebSiteFurniture.Data;
 using WebSiteFurniture.Entities;
+using WebSiteFurniture.Infrastructure;
+using WebSiteFurniture.Services;
 
 namespace WebSiteFurniture
 {
@@ -28,6 +31,8 @@ namespace WebSiteFurniture
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseLazyLoadingProxies()
                 .UseSqlServer(
@@ -39,6 +44,9 @@ namespace WebSiteFurniture
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
+
+            services.AddTransient<IBrandService, BrandServise>();
+            services.AddTransient<ICategoryService, CategoryService>();
 
             services.AddRazorPages();
             services.Configure<IdentityOptions>(options =>
@@ -56,6 +64,7 @@ namespace WebSiteFurniture
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.PrepareDatabase();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
