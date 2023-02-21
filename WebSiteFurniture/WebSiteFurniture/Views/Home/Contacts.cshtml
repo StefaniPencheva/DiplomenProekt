@@ -1,10 +1,9 @@
 ﻿@{
     ViewData["Title"] = "ЗА ВРЪЗКА";
 }
-<h1>@ViewData["Title"]</h1>
+<center><h1>@ViewData["Title"]</h1></center>
 
-<p>ОТДЕЛ ОБСЛУЖВАНЕ НА КЛИЕНТИ:</p>
-
+<center><p>ОТДЕЛ ОБСЛУЖВАНЕ НА КЛИЕНТИ:</p></center>
 <hr />
 @*Questions lists*@
 <div class="container-fluid">
@@ -14,18 +13,18 @@
                 <li>
                     <details close>
                         <summary>
-                            КОГА ЩЕ БЪДЕ ДОСТАВЕНА МОЯТА ПОРЪЧКА?
+                            Кога ще бъде доставена моята поръчка?
                         </summary>
                         <p class="font-weight-bold">
                             Доставката се извършва в рамките на 3-5 работни дни за
-                            малки пакети и 3-6 работни дни за големи колети
+                            малки пакети и 3-6 работни дни за големи колети.
                         </p>
                     </details>
                 </li>
                 <li>
                     <details close>
                         <summary>
-                            МОГА ЛИ ДА ПРОМЕНЯ СВОЯТА ПОРЪЧКА?
+                            Мога ли да променя своята поръчка?
                         </summary>
                         <p class="font-weight-bold">
                             Не е възможно да променяте вече направена поръчка.
@@ -36,7 +35,7 @@
                 <li>
                     <details close>
                         <summary>
-                            КАЧЕСТВЕНИ ЛИ СА ПРОДУКТИТЕ?
+                            Качествени ли са продуктите?
                         </summary>
                         <p class="font-weight-bold">
                             Да, всичко което изпращаме е с високо качество.
@@ -52,33 +51,30 @@
                 <li>
                     <details close>
                         <summary>
-                            КОГА ЩЕ БЪДЕ ДОСТАВЕНА МОЯТА ПОРЪЧКА?
+                            Мога ли да поръчам по телефона?
                         </summary>
                         <p class="font-weight-bold">
-                            Доставката се извършва в рамките на 3-5 работни дни за
-                            малки пакети и 3-6 работни дни за големи колети
+                            В момента не разполагаме с тази възможност. Единственият начин да направите поръчка е чрез сайта.
                         </p>
                     </details>
                 </li>
                 <li>
                     <details close>
                         <summary>
-                            КОГА ЩЕ БЪДЕ ДОСТАВЕНА МОЯТА ПОРЪЧКА?
+                            За кои населени места извършвате доставка?
                         </summary>
                         <p class="font-weight-bold">
-                            Доставката се извършва в рамките на 3-5 работни дни за
-                            малки пакети и 3-6 работни дни за големи колети
+                            Доставката се извършва до територията на цялата страна.
                         </p>
                     </details>
                 </li>
                 <li>
                     <details close>
                         <summary>
-                            КОГА ЩЕ БЪДЕ ДОСТАВЕНА МОЯТА ПОРЪЧКА?
+                            Мога ли да помоля за точен час на доставката?
                         </summary>
                         <p class="font-weight-bold">
-                            Доставката се извършва в рамките на 3-5 работни дни за
-                            малки пакети и 3-6 работни дни за големи колети
+                            Доставките се извършват за избран часови диапазон, но ние не можем да гарантираме точен час.
                         </p>
                     </details>
                 </li>
@@ -91,26 +87,33 @@
 <hr />
 
 @*Google maps with box*@
-<div class="row w-100">
-    <div class="col-lg-6 my-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d54182.39268946543!2d23.24704272839295!3d42.72377623529618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sbg!2sbg!4v1676927045790!5m2!1sbg!2sbg"
-                class="w-100" height="400" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="col-lg-6 my-4 d-flex align-items-center">
-        <div>
-            <p class="font-weight-bold">Имате въпроси? Или искате да ни намерите?</p>
-            <p>
-                Oбадете ни се на +359 89 670 9455.
-            </p>
-            <p>
-                Пишете на info@mebelimaniq.bg
-            </p>
-            <p>
-                Свържете се чрез Facebook
-            </p>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-sm-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46940.48542964202!2d23.287665335883435!3d42.66601005874675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa856ea09c5f11%3A0x94f52d5aaa6a751b!2z0L_Quy4g0KHQstC10YLQsCDQndC10LTQtdC70Y8!5e0!3m2!1sbg!2sbg!4v1676999374592!5m2!1sbg!2sbg" width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div class="col-sm-4" id="contact2">
+            <h3>Данни за връзка</h3>
+            <hr align="left" width="50%">
+            <h4 class="pt-2">Адрес</h4>
+            <i class="fas fa-globe" style="color:#000"></i> пл. Света Неделя №7, 1000 София, България <br>
+            <h4 class="pt-2">Контакти</h4>
+            <i class="fas fa-phone" style="color:#000"></i> <a href="tel:+"> +359 89 670 9455 </a><br>
+            <i class="fab fa-whatsapp" style="color:#000"></i><a href="tel:+"> +359 89 553 0495. </a><br>
+            <h4 class="pt-2">Email</h4>
+            <i class="fa fa-envelope" style="color:#000"></i> <a href="">info@mebelimaniq.bg</a><br>
         </div>
     </div>
 </div>
-
 
 
