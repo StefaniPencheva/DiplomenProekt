@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using WebSiteFurniture.Entities;
+using WebSiteFurniture.Models.Product;
 
 namespace WebSiteFurniture.Data
 {
@@ -19,5 +20,10 @@ namespace WebSiteFurniture.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<WebSiteFurniture.Models.Product.ProductCreateVM> ProductCreateVM { get; set; }
+        public DbSet<WebSiteFurniture.Models.Product.ProductIndexVM> ProductIndexVM { get; set; }
+        public DbSet<WebSiteFurniture.Models.Product.ProductEditVM> ProductEditVM { get; set; }
+        public DbSet<WebSiteFurniture.Models.Product.ProductDetailsVM> ProductDetailsVM { get; set; }
+        public DbSet<WebSiteFurniture.Models.Product.ProductDeleteVM> ProductDeleteVM { get; set; }
     }
 }

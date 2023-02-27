@@ -47,6 +47,7 @@ namespace WebSiteFurniture
 
             services.AddTransient<IBrandService, BrandServise>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
 
             services.AddRazorPages();
             services.Configure<IdentityOptions>(options =>
