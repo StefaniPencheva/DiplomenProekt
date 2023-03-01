@@ -14,7 +14,7 @@ namespace WebSiteFurniture.Abstraction
 
         List<Product> GetProduct();
         Product GetProductById(int productId);
-        bool RemoveById(int dogproductId);
+        bool RemoveById(int productId);
         List<Product> GetProducts(string searchStringCategoryName, string searchStringBrandName);
     }
 }
