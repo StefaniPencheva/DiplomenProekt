@@ -31,6 +31,10 @@ namespace WebSiteFurniture.Controllers
         {
             return View();
         }
+        public IActionResult LoocAll()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
