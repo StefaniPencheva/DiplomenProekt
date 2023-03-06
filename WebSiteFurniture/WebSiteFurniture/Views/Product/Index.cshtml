@@ -2,10 +2,10 @@
 @model IEnumerable<WebSiteFurniture.Models.Product.ProductIndexVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Продукти";
 }
 
-<h1>Index</h1>
+<h1>Продукти</h1>
 @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
 {<p>
         <a asp-action="Create">Create New</a>
