@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebSiteFurniture.Models.Client
 {
-    public class ClientIndexVM
+    public class ClientDeleteVM
     {
         public string Id { get; set; }
 
@@ -19,6 +19,5 @@ namespace WebSiteFurniture.Models.Client
 
         public string Email { get; set; }
 
-        public bool IsAdmin { get; set; }
     }
 }

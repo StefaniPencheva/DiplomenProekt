@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using WebSiteFurniture.Entities;
 using WebSiteFurniture.Models.Product;
+using WebSiteFurniture.Models.Client;
 
 namespace WebSiteFurniture.Data
 {
@@ -25,5 +26,6 @@ namespace WebSiteFurniture.Data
         public DbSet<WebSiteFurniture.Models.Product.ProductEditVM> ProductEditVM { get; set; }
         public DbSet<WebSiteFurniture.Models.Product.ProductDetailsVM> ProductDetailsVM { get; set; }
         public DbSet<WebSiteFurniture.Models.Product.ProductDeleteVM> ProductDeleteVM { get; set; }
+        public DbSet<WebSiteFurniture.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace WebSiteFurniture.Controllers
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 Address = u.Address,
-                Email = u.Email,
+                Email = u.Email
             })
             .ToList();
 
@@ -45,9 +45,57 @@ namespace WebSiteFurniture.Controllers
             // Вадим само клиентите без админ и ги сортираме по username
             var users = allUsers.Where(x => x.IsAdmin == false)
                 .OrderBy(x => x.UserName).ToList();
-           
+
             //връщаме списък
             return this.View(users);
+        }
+
+        // GET: ClientController/Delete/5
+        public ActionResult Delete(string id)
+        {
+            var user = this.userManager.Users.FirstOrDefault(x => x.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ClientDeleteVM userToDelete = new ClientDeleteVM()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                Email = user.Email,
+                UserName = user.UserName
+            };
+            return View(userToDelete);
+        }
+
+        // POST: ClientController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(ClientDeleteVM bidingModel)
+        {
+            string id = bidingModel.Id;
+            var user = await userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                IdentityResult result = await userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                    return RedirectToAction("SuccessDeleteUser");
+                else
+                {
+                    return NotFound();
+                }
+            }
+        }
+        public ActionResult SuccessDeleteUser()
+        {
+            return View();
         }
     }
 }

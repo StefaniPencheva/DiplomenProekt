@@ -45,9 +45,12 @@ namespace WebSiteFurniture
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
 
-            services.AddTransient<IBrandService, BrandServise>();
-            services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+           
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IBrandService, BrandServise>();
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
 
             services.AddRazorPages();
             services.Configure<IdentityOptions>(options =>

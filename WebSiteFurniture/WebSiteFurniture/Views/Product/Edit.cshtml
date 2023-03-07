@@ -1,12 +1,10 @@
 ﻿@model WebSiteFurniture.Models.Product.ProductEditVM
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Редактиране";
 }
 
-<h1>Edit</h1>
-
-<h4>ProductEditVM</h4>
+<h1>Редактиране</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -68,7 +66,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад</a>
 </div>
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
