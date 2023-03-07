@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,6 +12,7 @@ using WebSiteFurniture.Models.Order;
 
 namespace WebSiteFurniture.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -77,6 +79,7 @@ namespace WebSiteFurniture.Controllers
             return View(orders);
         }
 
+        [AllowAnonymous]
         //Raboti na GET zaqvka predlaga potvurjdenie na product
         public ActionResult Create(int productId, int quantity)
         {
@@ -105,6 +108,7 @@ namespace WebSiteFurniture.Controllers
             return View(orderForDb);
         }
 
+        [AllowAnonymous]
         //POST: OrderController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
