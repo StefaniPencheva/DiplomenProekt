@@ -31,7 +31,7 @@ namespace WebSiteFurniture.Controllers
         {
             return View();
         }
-        public IActionResult LoockMore()
+        public IActionResult LookMore()
         {
             return View();
         }
