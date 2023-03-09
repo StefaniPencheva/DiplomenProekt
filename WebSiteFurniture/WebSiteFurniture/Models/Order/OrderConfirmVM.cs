@@ -26,7 +26,7 @@ namespace WebSiteFurniture.Models.Order
         public string Picture { get; set; }
         [Required]
         [Range(1, int.MaxValue)]
-        [Display(Name = "Quantity")]
+        [Display(Name = "Количество")]
 
         public int Quantity { get; set; }
 

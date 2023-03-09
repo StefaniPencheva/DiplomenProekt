@@ -16,14 +16,14 @@ namespace WebSiteFurniture.Services
         {
             _context = context;
         }
-        public bool Create(string name, int brandId, int categoryId, string picture, int quantity, decimal price, decimal discount)
+        public bool Create(string name, int brandId, int categoryId, string description, string picture, int quantity, decimal price, decimal discount)
         {
             Product iteam = new Product()
             {
                 ProductName = name,
                 Brand = _context.Brands.Find(brandId),
                 Category = _context.Categories.Find(categoryId),
-
+                Description = description,
                 Picture = picture,
                 Quantity = quantity,
                 Price = price,
@@ -74,7 +74,7 @@ namespace WebSiteFurniture.Services
             return _context.SaveChanges() != 0;
         }
 
-        public bool Update(int productId, string name, int brandId, int categoryId, string picture, int quantity, decimal price, decimal discount)
+        public bool Update(int productId, string name, int brandId, int categoryId, string description, string picture, int quantity, decimal price, decimal discount)
         {
             var product = GetProductById(productId);
             if (product == default(Product))
@@ -88,7 +88,7 @@ namespace WebSiteFurniture.Services
 
             product.Brand = _context.Brands.Find(brandId);
             product.Category = _context.Categories.Find(categoryId);
-
+            product.Description = description;
             product.Picture = picture;
             product.Quantity = quantity;
             product.Price = price;

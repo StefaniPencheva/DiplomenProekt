@@ -7,7 +7,6 @@
 <h1>Детайли</h1>
 
 <div>
-    
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -17,11 +16,11 @@
             @Html.DisplayFor(model => model.ProductName)
         </dd>
         @*<dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.BrandId)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.BrandId)
-            </dd>*@
+            @Html.DisplayNameFor(model => model.BrandId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrandId)
+        </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.BrandName)
         </dt>
@@ -29,16 +28,22 @@
             @Html.DisplayFor(model => model.BrandName)
         </dd>
         @*<dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CategoryId)
-            </dd>*@
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CategoryName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Picture)
@@ -67,7 +72,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
     <a asp-action="Index">Назад</a>
 </div>
 @section Scripts {

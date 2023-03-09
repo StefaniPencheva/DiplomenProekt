@@ -10,7 +10,7 @@ namespace WebSiteFurniture.Models.Category
     {
         public int Id { get; set; }
 
-        [Display(Name = "Category")]
+        [Display(Name = "Катеория")]
 
         public string Name { get; set; }
     }

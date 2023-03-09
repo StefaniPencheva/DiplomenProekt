@@ -53,7 +53,7 @@ namespace WebSiteFurniture.Controllers
             if (ModelState.IsValid)
             {
                 var createdId = _productService.Create(product.ProductName, product.BrandId,
-                                                       product.CategoryId, product.Picture,
+                                                       product.CategoryId, product.Description, product.Picture,
                                                        product.Quantity, product.Price,
                                                        product.Discount);
                 if (createdId)
@@ -85,9 +85,32 @@ namespace WebSiteFurniture.Controllers
             }).ToList();
             return this.View(products);
         }
+        [AllowAnonymous]
+        public ActionResult LivingRoom(string searchStringCategoryName, string searchStringBrandName)
+        {
+            //  var products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
 
-        // GET: ProductController/Edit
-        public IActionResult Edit(int id)
+            List<ProductIndexVM> products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName)
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x=>x.CategoryName== "Всекидневна").ToList();
+          
+            return this.View(products);
+        }
+
+            // GET: ProductController/Edit
+            public IActionResult Edit(int id)
         {
             Product product = _productService.GetProductById(id);
             if (product == null)
@@ -102,6 +125,7 @@ namespace WebSiteFurniture.Controllers
                 //BrandName = product.Brand.BrandName,
                 CategoryId = product.CategoryId,
                 //CategoryName = product.Category.CategoryName,
+                Description = product.Description,
                 Picture = product.Picture,
                 Quantity = product.Quantity,
                 Price = product.Price,
@@ -133,7 +157,7 @@ namespace WebSiteFurniture.Controllers
                 if (ModelState.IsValid)
                 {
                     var updated = _productService.Update(id, product.ProductName, product.BrandId,
-                                                            product.CategoryId, product.Picture,
+                                                            product.CategoryId, product.Description,product.Picture,
                                                             product.Quantity, product.Price, product.Discount);
                     if (updated)
                     {
@@ -161,6 +185,7 @@ namespace WebSiteFurniture.Controllers
                 BrandName = item.Brand.BrandName,
                 CategoryId = item.CategoryId,
                 CategoryName = item.Category.CategoryName,
+                Description = item.Description,
                 Picture = item.Picture,
                 Quantity = item.Quantity,
                 Price = item.Price,
@@ -185,6 +210,7 @@ namespace WebSiteFurniture.Controllers
                 BrandName = item.Brand.BrandName,
                 CategoryId = item.CategoryId,
                 CategoryName = item.Category.CategoryName,
+                Description = item.Description,
                 Picture = item.Picture,
                 Quantity = item.Quantity,
                 Price = item.Price,

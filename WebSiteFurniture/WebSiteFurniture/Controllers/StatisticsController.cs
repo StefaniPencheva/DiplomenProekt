@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using WebSiteFurniture.Models.Statistics;
 
 namespace WebSiteFurniture.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class StatisticsController : Controller
     {
         private readonly IStatisticsService statisticsService;

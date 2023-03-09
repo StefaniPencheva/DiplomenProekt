@@ -11,27 +11,27 @@ namespace WebSiteFurniture.Models.Product
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "ProductName")]
+        [Display(Name = "Име")]
         public string ProductName { get; set; }
 
         public int BrandId { get; set; }
-        [Display(Name = "Brand")]
+        [Display(Name = "Марка")]
         public string BrandName { get; set; }
 
         public int CategoryId { get; set; }
-        [Display(Name = "Category")]
+        [Display(Name = "Категория")]
         public string CategoryName { get; set; }
 
-        [Display(Name = "Picture")]
+        [Display(Name = "Изображение")]
         public string Picture { get; set; }
 
-        [Display(Name = "Quantity")]
+        [Display(Name = "Количество")]
         public int Quantity { get; set; }
 
-        [Display(Name = "Price")]
+        [Display(Name = "Цена")]
         public decimal Price { get; set; }
 
-        [Display(Name = "Discount")]
+        [Display(Name = "Отстъпка")]
         public decimal Discount { get; set; }
     }
 }

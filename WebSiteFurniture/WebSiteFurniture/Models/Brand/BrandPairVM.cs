@@ -10,7 +10,7 @@ namespace WebSiteFurniture.Models.Brand
     {
         public int Id { get; set; }
 
-        [Display(Name = "Brand")]
+        [Display(Name = "Марка")]
 
         public string Name { get; set; }
     }

@@ -44,7 +44,7 @@ namespace WebSiteFurniture.Controllers
             }).ToList();
             return View(orders);
         }
-
+        [AllowAnonymous]
         //Pokazva samo poruchkite na potrebitel i tursi po ime na product
         public IActionResult MyOrders(string searchString)
         {

@@ -9,8 +9,8 @@ namespace WebSiteFurniture.Abstraction
     public interface IProductService
     {
         bool Create(string name, int brandId,
-            int caqtegoryId, string picture, int quantity, decimal price, decimal discount);
-        bool Update(int productId, string name, int brandId, int categoryId, string picture, int quantity, decimal price, decimal discount);
+            int caqtegoryId, string description, string picture, int quantity, decimal price, decimal discount);
+        bool Update(int productId, string name, int brandId, int categoryId, string description, string picture, int quantity, decimal price, decimal discount);
 
         List<Product> GetProduct();
         Product GetProductById(int productId);
