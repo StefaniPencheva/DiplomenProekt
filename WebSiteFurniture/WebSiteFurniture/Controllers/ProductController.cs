@@ -86,11 +86,11 @@ namespace WebSiteFurniture.Controllers
             return this.View(products);
         }
         [AllowAnonymous]
-        public ActionResult LivingRoom(string searchStringCategoryName, string searchStringBrandName)
+        public ActionResult LivingRoom()
         {
             //  var products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
 
-            List<ProductIndexVM> products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName)
+            List<ProductIndexVM> products = _productService.GetProducts()
             .Select(product => new ProductIndexVM()
             {
                 Id = product.Id,
@@ -108,9 +108,55 @@ namespace WebSiteFurniture.Controllers
           
             return this.View(products);
         }
+        [AllowAnonymous]
+        public ActionResult BedRoom()
+        {
+            //  var products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
 
-            // GET: ProductController/Edit
-            public IActionResult Edit(int id)
+            List<ProductIndexVM> products = _productService.GetProducts()
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x => x.CategoryName == "Спалня").ToList();
+
+            return this.View(products);
+        }
+        [AllowAnonymous]
+        public ActionResult BathRoom()
+        {
+            //  var products = _productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
+
+            List<ProductIndexVM> products = _productService.GetProducts()
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x => x.CategoryName == "Баня").ToList();
+
+            return this.View(products);
+        }
+
+        // GET: ProductController/Edit
+        public IActionResult Edit(int id)
         {
             Product product = _productService.GetProductById(id);
             if (product == null)

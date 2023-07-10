@@ -12,7 +12,7 @@ using WebSiteFurniture.Models.Order;
 
 namespace WebSiteFurniture.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -22,6 +22,8 @@ namespace WebSiteFurniture.Controllers
             this.context = context;
         }
         //Razglejdane na vs.poruchki
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
             string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -44,7 +46,7 @@ namespace WebSiteFurniture.Controllers
             }).ToList();
             return View(orders);
         }
-        [AllowAnonymous]
+     
         //Pokazva samo poruchkite na potrebitel i tursi po ime na product
         public IActionResult MyOrders(string searchString)
         {
@@ -79,7 +81,7 @@ namespace WebSiteFurniture.Controllers
             return View(orders);
         }
 
-        [AllowAnonymous]
+       
         //Raboti na GET zaqvka predlaga potvurjdenie na product
         public ActionResult Create(int productId, int quantity)
         {
@@ -108,7 +110,7 @@ namespace WebSiteFurniture.Controllers
             return View(orderForDb);
         }
 
-        [AllowAnonymous]
+        
         //POST: OrderController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -21,19 +21,25 @@ namespace WebSiteFurniture.Models.Order
 
         public int ProductId { get; set; }
 
+        [Display(Name = "Име на продукт")]
         public string ProductName { get; set; }
 
+        [Display(Name = "Изображение")]
         public string Picture { get; set; }
+
         [Required]
         [Range(1, int.MaxValue)]
         [Display(Name = "Количество")]
 
         public int Quantity { get; set; }
 
+        [Display(Name = "Цена")]
         public decimal Price { get; set; }
 
+        [Display(Name = "Отстъпка")]
         public decimal Discount { get; set; }
 
+        [Display(Name = "Крайна цена")]
         public decimal TotalPrice { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace WebSiteFurniture.Models.Product
         [Display(Name = "Изображение")]
         public string Picture { get; set; }
 
-        [Display(Name = "Количество")]
+        [Display(Name = "Брой")]
         public int Quantity { get; set; }
 
         [Display(Name = "Цена")]

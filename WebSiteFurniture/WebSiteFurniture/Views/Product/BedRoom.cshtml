@@ -1,0 +1,123 @@
+﻿@using WebSiteFurniture.Models.Order
+@model IEnumerable<WebSiteFurniture.Models.Product.ProductIndexVM>
+
+@{
+    ViewData["Title"] = "Спалня";
+}
+
+<center><h1>Мебели за спалня</h1></center>
+<br />
+@if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+{<p>
+        <a asp-action="Create">Създай нов продукт</a>
+    </p>
+}
+
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            @*
+                <th>
+                    @Html.DisplayNameFor(model => model.BrandId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <th>
+                    Поръчка
+                </th>
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.BrandId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CategoryId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="Image" width="100px" />
+                    @*@Html.DisplayFor(modelItem => item. Picture)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount) %
+                </td>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
+                        {
+                          ProductId = item.Id
+                        })
+                    </td>
+                }
+                <td>
+                    @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                    {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                    @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                    {
+                <a asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
+
+<div>
+    <h4>БОГАТ ИЗБОР НА МЕБЕЛИ И АКСЕСОАРИ ЗА СПАЛНЯТА</h4>
+    <hr />
+    <p>
+        Тук имаме всичко необходимо, за да се наспите добре през нощта. Ние сме експерти в областта на леглата.
+        Декорирайте спалнята си с различни мебели,които са по ваш вкус. Спалнята е място за сън и релаксация. 
+        Мястото, където сме напълно себе си в своите канелени мечти.
+    </p>
+</div>

@@ -8,14 +8,14 @@ namespace WebSiteFurniture.Models.Statistics
 {
     public class StatisticsVM
     {
-        [Display(Name = "Count Clients")]
+        [Display(Name = "Брой клиенти")]
         public int CountClients { get; set; }
-        [Display(Name = "Count Products")]
+        [Display(Name = "Брой продукти")]
         public int CountProducts{ get; set; }
-        [Display(Name = "Count Orders")]
+        [Display(Name = "Брой поръчки")]
         public int CountOrders { get; set; }
 
-        [Display(Name = "Total Sum Orders")]
+        [Display(Name = "Обща сума")]
         public decimal SumOrders { get; set; }
     }
 }

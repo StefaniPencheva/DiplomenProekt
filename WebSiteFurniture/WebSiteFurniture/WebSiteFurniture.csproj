@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-WebSiteFurniture-43BB0BE6-C2DA-4C4E-95B7-1363374BCFFB</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <AssemblyName>P</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

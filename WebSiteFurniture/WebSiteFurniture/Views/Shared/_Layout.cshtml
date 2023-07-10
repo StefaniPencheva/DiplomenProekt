@@ -10,9 +10,11 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="background-color: #F5F5F5 ">
             <div class="container">
+                <img src="~/images/logo.png" alt="Описание на изображението" width="50" height="50" />
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Мебелна Мания</a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,9 +41,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" asp-controller="Product" asp-action="Index">Всички продукти</a>
-                                    <a class="dropdown-item" href="/Product/Index?SearchStringBrandName=&SearchStringCategoryName=Всекидневна">Всекидневна</a>
-                                    <a class="dropdown-item" href="/Product/Index?SearchStringBrandName=&SearchStringCategoryName=Спалня">Спалня</a>
-                                    <a class="dropdown-item" href="/Product/Index?SearchStringBrandName=&SearchStringCategoryName=Баня">Баня</a>
+                                    <a class="dropdown-item" asp-controller="Product" asp-action="LivingRoom">Всекидневна</a>
+                                    <a class="dropdown-item" asp-controller="Product" asp-action="BedRoom">Спалня</a>
+                                    <a class="dropdown-item" asp-controller="Product" asp-action="BathRoom">Баня</a>
                                 </div>
                             </div>
                         </li>
@@ -104,9 +106,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" >
         <div class="container">
             &copy; 2023 - Мебелна Мания - <a asp-area="" asp-controller="Home" asp-action="Privacy">За нас</a>
+            
+            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

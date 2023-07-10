@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using WebSiteFurniture.Models.Client;
 
 namespace WebSiteFurniture.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class ClientController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -27,6 +29,7 @@ namespace WebSiteFurniture.Controllers
                 UserName = u.UserName,
                 FirstName = u.FirstName,
                 LastName = u.LastName,
+                Phone = u.Phone,
                 Address = u.Address,
                 Email = u.Email
             })
@@ -64,6 +67,7 @@ namespace WebSiteFurniture.Controllers
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Phone = user.Phone,
                 Address = user.Address,
                 Email = user.Email,
                 UserName = user.UserName

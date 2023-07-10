@@ -47,13 +47,15 @@ namespace WebSiteFurniture.Areas.Identity.Pages.Account
             //[EmailAddress]
             //public string Email { get; set; }
             [Required]
+            [Display(Name = "Потребителско име")]
             public string UserName { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Парола")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомни ме?")]
             public bool RememberMe { get; set; }
         }
 

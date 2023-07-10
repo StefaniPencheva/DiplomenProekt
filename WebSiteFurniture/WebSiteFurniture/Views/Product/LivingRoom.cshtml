@@ -1,13 +1,12 @@
-﻿
-
-@using WebSiteFurniture.Models.Order
+﻿@using WebSiteFurniture.Models.Order
 @model IEnumerable<WebSiteFurniture.Models.Product.ProductIndexVM>
 
 @{
     ViewData["Title"] = "Всекидневна";
 }
 
-<center><h1>Продукти</h1></center>
+<center><h1>Мебели за всекидневна</h1></center>
+<br />
 @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
 {<p>
         <a asp-action="Create">Създай нов продукт</a>
@@ -16,14 +15,7 @@
 
 
 
-<form asp-controller="Product" asp-action="Index" method="get">
-    <p>
-        Марка: <input type="text" name="SearchStringBrandName" />
-        Категория: <input type="text" name="SearchStringCategoryName" />
-
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -58,7 +50,7 @@
             @if (this.User.Identity.IsAuthenticated)
             {
                 <th>
-                    Order
+                    Поръчка
                 </th>
             }
             <th></th>
@@ -108,18 +100,26 @@
                 <td>
                     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
                     }
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Детайли</a>
                     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
                     {
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
                     }
                 </td>
             </tr>
         }
     </tbody>
 </table>
-@section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    </div>
+
+<div>
+    <h4>МОДЕРНИ МЕБЕЛИ ЗА ВАШАТА ВСЕКИДНЕВНА</h4>
+    <hr />
+    <p>
+        Всекидневната е централно място в дома, където прекарваме много време, когато искаме да се отпуснем и да релаксираме.
+        Важно е да се чувствате като у дома си, затова е важно декорът да отговаря на личния Ви стил.
+        Тук ще ви предложим всичко необходимо за да обзаведете хола си. Разгледайте нашата широка гама и се вдъхновете.
+    </p>
+</div>

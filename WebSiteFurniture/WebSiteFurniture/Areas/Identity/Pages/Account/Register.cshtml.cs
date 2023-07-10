@@ -47,34 +47,41 @@ namespace WebSiteFurniture.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [Display(Name = "FirstName")]
+            [Display(Name = "Име")]
             public string FirstName { get; set; }
 
             [Required]
-            [Display(Name = "LastName")]
+            [Display(Name = "Фамилия")]
             public string LastName { get; set; }
 
             [Required]
-            [Display(Name = "Address")]
+            [Display(Name = "Адрес")]
             public string Address { get; set; }
 
             [Required]
-            [Display(Name = "Username")]
+            [Display(Name = "Потребителско име")]
             public string UserName { get; set; }
 
             [Required]
+            [Phone]
+            [MaxLength(10, ErrorMessage = "The numbers should't be more that 10!")]
+            [MinLength(10)]
+            [Display(Name = "Телефон")]
+            public string Phone { get; set; }
+
+            [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Имейл")]
             public string Email { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Парола")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Потвърди паролата")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
         }
@@ -91,7 +98,7 @@ namespace WebSiteFurniture.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { FirstName=Input.FirstName, LastName=Input.LastName, Address=Input.Address, UserName = Input.UserName, Email = Input.Email };
+                var user = new ApplicationUser { FirstName=Input.FirstName, LastName=Input.LastName, Address=Input.Address, UserName = Input.UserName, Phone=Input.Phone, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

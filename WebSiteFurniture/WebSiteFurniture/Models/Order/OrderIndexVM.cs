@@ -25,6 +25,9 @@ namespace WebSiteFurniture.Models.Order
         [Display(Name = "Продукт")]
         public string Product { get; set; }
 
+        [Display(Name = "Описание")]
+        public string Description { get; set; }
+
         [Display(Name = "Изображение")]
         public string Picture { get; set; }
 

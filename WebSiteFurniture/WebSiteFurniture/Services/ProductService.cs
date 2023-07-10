@@ -33,7 +33,7 @@ namespace WebSiteFurniture.Services
             return _context.SaveChanges() != 0;
         }
 
-        public List<Product> GetProduct()
+        public List<Product> GetProducts()
         {
             List<Product> products = _context.Products.ToList();
             return products;

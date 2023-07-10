@@ -18,7 +18,7 @@ namespace WebSiteFurniture.Models.Product
         [Key]
         public int Id { get; set; }
         [Required]
-        [MaxLength(30)]
+        [MaxLength(60)]
         [Display(Name = "Име на продукт")]
         public string ProductName { get; set; }
 
